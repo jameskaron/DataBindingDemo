@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+        <import type="com.m.databindingdemo.model.User" />
+        <import type="java.util.List" />
+        <import type="java.util.Map"/>
+        <import type="com.m.databindingdemo.util.MyStringUtils" />
+        <import type="android.graphics.drawable.Drawable" />
+        <import type="android.util.SparseArray" />
+        <import type="android.databinding.ObservableMap" />
+        <import type="com.m.databindingdemo.model.Fields"/>
+        <import type="android.databinding.ObservableList"/>
+
+        <variable
+            name="image"
+            type="Drawable"/>
+        <variable
+            name="note"
+            type="String" />
+        <variable
+            name="user"
+            type="User"/>
+
+        <variable
+            name="userList"
+            type="List&lt;String&gt;"/>
+        <variable
+            name="sparse"
+            type="SparseArray&lt;String&gt;"/>
+        <variable
+            name="map"
+            type="Map&lt;String,String&gt;"/>
+        <variable
+            name="index"
+            type="int"/>
+        <variable
+            name="firstname"
+            type="String"/>
+
+        <variable
+            name="mainActivityVM"
+            type="com.m.databindingdemo.viewholder.MainActivityVM"/>
+        <variable
+            name="handlers"
+            type="com.m.databindingdemo.present.MyHandlers"/>
+        <variable
+            name="task"
+            type="com.m.databindingdemo.model.Task"/>
+        <variable
+            name="present"
+            type="com.m.databindingdemo.present.Present"/>
+        <variable
+            name="obMap"
+            type="ObservableMap&lt;String, Object&gt;"/>
+        <variable
+            name="obList"
+            type="ObservableList&lt;Object&gt;"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to Recycler View 方式一"
+            android:onClick="@{(v) -> mainActivityVM.onClick(v)}"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="to Recycler View 方式二"
+            android:onClick="@{mainActivityVM::goToNext}"
+            />
+
+        <include layout="@layout/name"
+            bind:user = "@{user}"/>
+
+        <include layout="@layout/contact"
+            bind:user = "@{user}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text='@{"List test:" + userList[index]}'
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text='@{"Map test:" + map["firstname"]}'
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@{user.firstname}"
+            android:onClick="@{handlers::onClickFriend}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@{MyStringUtils.capitalize(user.lastname)}"
+            android:visibility="@{user.isAdult ? View.VISIBLE : View.GONE}"
+            android:onClick="@{(view) ->present.onSaveClick(view,task)}"
+            />
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onCheckedChanged="@{(cb, isChecked) -> present.onCompletedChanged(cb,task,isChecked)}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On long clicked"
+            android:onLongClick="@{(view) -> present.onLongClicked(view,task)}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="@{@plurals/song(2,3)}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='@{@string/name_format(user.firstname,user.lastname)}'
+            />
+
+        <TextView
+            android:text='@{obMap["lastName"]}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text='@{String.valueOf(1 + safeUnbox((Integer)obMap["age"]))}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text='@{obList[Fields.FIRST_NAME]}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text='@{String.valueOf(1 + safeUnbox((Integer)obList[Fields.AGE]))}'
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</layout>
