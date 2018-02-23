@@ -21,7 +21,6 @@ class MainActivityVM {
     fun onClick(view: View) {
         val context = view.context
         val intent = Intent(context, RecycleViewActivity::class.java)
-//        intent.putExtra("productId", productId)
         context.startActivity(intent)
     }
 
