@@ -14,6 +14,7 @@ class User {
     var lastname: ObservableField<String> = ObservableField()
     var isAdult: ObservableBoolean = ObservableBoolean()
     var displayName: ObservableField<String> = ObservableField()
+    var age: ObservableField<Int> = ObservableField()
 
     var map: ObservableArrayMap<String, Any> = ObservableArrayMap()
     var obList: ObservableArrayList<Any> = ObservableArrayList()

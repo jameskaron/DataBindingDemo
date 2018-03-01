@@ -2,7 +2,6 @@ package com.m.databindingdemo.viewholder
 
 import android.databinding.ObservableInt
 import android.view.View
-import android.support.v4.content.ContextCompat.startActivity
 import android.content.Intent
 import com.m.databindingdemo.ui.activities.RecycleViewActivity
 
