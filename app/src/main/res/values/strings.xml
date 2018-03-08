@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">DataBindingDemo</string>
     <string name="name_format">%1$s name format %2$s </string>
+
+    <string name="gray">#e6e6e6</string>
+    <string name="blue">#00008b</string>
+
 </resources>

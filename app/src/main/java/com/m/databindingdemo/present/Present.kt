@@ -1,6 +1,9 @@
 package com.m.databindingdemo.present
 
 import android.databinding.BindingAdapter
+import android.databinding.BindingConversion
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.View
@@ -33,15 +36,18 @@ class Present {
     }
 
     companion object {
+
         @JvmStatic
-        @BindingAdapter("bind:text")
+        @BindingAdapter("bind:test")
         fun customAdapter(view: TextView, text: String) {
-            if (text == null){
+            if (text == "123"){
                 view.text = "n/a"
             }else{
                 view.text = "test"
             }
         }
+
+
     }
 
 }

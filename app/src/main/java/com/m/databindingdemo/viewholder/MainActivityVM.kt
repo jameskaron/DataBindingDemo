@@ -1,8 +1,8 @@
 package com.m.databindingdemo.viewholder
 
+import android.content.Intent
 import android.databinding.ObservableInt
 import android.view.View
-import android.content.Intent
 import com.m.databindingdemo.ui.activities.RecycleViewActivity
 
 
@@ -22,5 +22,6 @@ class MainActivityVM {
         val intent = Intent(context, RecycleViewActivity::class.java)
         context.startActivity(intent)
     }
+
 
 }
