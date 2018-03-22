@@ -3,15 +3,23 @@ package com.m.databindingdemo.ui.activities
 import android.databinding.DataBindingUtil
 import android.databinding.Observable
 import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
 import com.m.databindingdemo.R
 import com.m.databindingdemo.databinding.ActivityMainBinding
+import com.m.databindingdemo.event.MessageEvent
 import com.m.databindingdemo.present.MyHandlers
 import com.m.databindingdemo.model.Task
 import com.m.databindingdemo.model.User
+import com.m.databindingdemo.present.EventPresent
 import com.m.databindingdemo.present.Present
 import com.m.databindingdemo.util.DataBindingUtils
 import com.m.databindingdemo.viewholder.BaseActivity
 import com.m.databindingdemo.viewholder.MainActivityVM
+import kotlinx.android.synthetic.main.activity_main.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 import org.jetbrains.anko.startActivity
 
 class MainActivity : BaseActivity() {
@@ -27,6 +35,8 @@ class MainActivity : BaseActivity() {
         setViewModel()
 
         addCallBack()
+
+
     }
 
     private fun addCallBack() {
@@ -62,6 +72,7 @@ class MainActivity : BaseActivity() {
         binding.handlers = MyHandlers()
         binding.task = Task()
         binding.present = Present()
+        binding.eventPresent = EventPresent()
         binding.index = 1
         binding.userList = listOf("a","b","c")
         binding.firstname = "firstname"

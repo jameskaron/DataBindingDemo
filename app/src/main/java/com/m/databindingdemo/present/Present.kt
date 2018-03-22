@@ -10,8 +10,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.m.databindingdemo.event.MessageEvent
 import com.m.databindingdemo.model.Task
 import com.squareup.picasso.Picasso
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -33,6 +35,11 @@ class Present {
     fun onLongClicked(view: View, task: Task): Boolean{
         Toast.makeText(view.context,"do task${task.doTask()}", Toast.LENGTH_SHORT).show()
         return true
+    }
+
+    fun sendMessage(view: View){
+        println("================")
+        EventBus.getDefault().post(MessageEvent("test event send"))
     }
 
     companion object {

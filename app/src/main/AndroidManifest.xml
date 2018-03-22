@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activities.RecycleViewActivity" />
-        <activity android:name=".viewholder.BaseActivity"></activity>
+        <activity android:name=".viewholder.BaseActivity" />
+        <activity android:name=".ui.activities.EventBusActivity"></activity>
     </application>
 
 </manifest>

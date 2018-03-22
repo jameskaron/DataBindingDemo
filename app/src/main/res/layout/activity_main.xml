@@ -64,6 +64,9 @@
         <variable
             name="isColor"
             type="Boolean"/>
+        <variable
+            name="eventPresent"
+            type="com.m.databindingdemo.present.EventPresent"/>
     </data>
 
     <LinearLayout
@@ -73,6 +76,7 @@
         >
 
         <Button
+            android:id="@+id/btn_to_recycler_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="to Recycler View 方式一"
@@ -80,10 +84,19 @@
             />
 
         <Button
+            android:id="@+id/btn_to_recycler_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="to Recycler View 方式二"
             android:onClick="@{mainActivityVM::goToNext}"
+            />
+
+        <Button
+            android:id="@+id/btn_to_eventbus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EventBus Test Demo"
+            android:onClick="@{(v) -> mainActivityVM.onClick(v)}"
             />
 
         <include layout="@layout/name"
@@ -178,6 +191,18 @@
             android:layout_height="wrap_content"
             android:text="custom conversions"
             android:background="@{isColor? @string/blue:@string/gray}"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={user.firstname}"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="send event message"
+            android:onClick="@{() -> eventPresent.sendMessage()}"
             />
     </LinearLayout>
 
