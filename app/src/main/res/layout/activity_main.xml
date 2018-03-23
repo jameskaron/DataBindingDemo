@@ -198,12 +198,12 @@
             android:layout_height="wrap_content"
             android:text="@={user.firstname}"
             />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="send event message"
-            android:onClick="@{() -> eventPresent.sendMessage()}"
-            />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="send event message"-->
+            <!--android:onClick="@{(v) -> eventPresent.sendMessage(v)}"-->
+            <!--/>-->
     </LinearLayout>
 
 </layout>

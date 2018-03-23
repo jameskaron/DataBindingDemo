@@ -22,11 +22,9 @@ class EventBusActivity : AppCompatActivity() {
         setContentView(R.layout.activity_event_bus)
 
         EventBus.getDefault().register(this)
-
+        textView.text = "abc"
         btn_eventbus.onClick {
-//            EventBus.getDefault().post(MessageEvent("test event send"))
-//            eventBus.post(MessageEvent("test event send"))
-            startActivity<MainActivity>()
+            startActivity<EventBus2Activity>()
         }
     }
 
@@ -40,8 +38,8 @@ class EventBusActivity : AppCompatActivity() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: MessageEvent) {
-        Toast.makeText(this,"test received event message", Toast.LENGTH_LONG)
-        btn_eventbus.text = event.message
-        Log.d("test", "test")
+//        Toast.makeText(this,"test received event message", Toast.LENGTH_LONG)
+        textView.text = event.message
+        Log.d("test", event.message)
     }
 }

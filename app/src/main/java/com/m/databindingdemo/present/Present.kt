@@ -37,11 +37,6 @@ class Present {
         return true
     }
 
-    fun sendMessage(view: View){
-        println("================")
-        EventBus.getDefault().post(MessageEvent("test event send"))
-    }
-
     companion object {
 
         @JvmStatic

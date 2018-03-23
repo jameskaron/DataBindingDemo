@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ui.activities.RecycleViewActivity" />
         <activity android:name=".viewholder.BaseActivity" />
-        <activity android:name=".ui.activities.EventBusActivity"></activity>
+        <activity android:name=".ui.activities.EventBusActivity" />
+        <activity android:name=".ui.activities.EventBus2Activity"></activity>
     </application>
 
 </manifest>
